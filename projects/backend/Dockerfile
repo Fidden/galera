@@ -34,14 +34,10 @@ RUN mkdir -p /var/www/html/storage/logs \
     && chmod -R 775 /var/www/html/vendor
 
 RUN sudo chown -R www-data:www-data /var/www/html \
-    && sudo chmod 775 -R /var/www/html \
+    && sudo chmod 775 -R /var/www/html
 
-# Run application setup steps for dev and prod
-RUN if [ "$APP_ENV" = "local" ]; then \
-        composer install; \
-    else \
-      composer install --no-dev --optimize-autoloader; \
-    fi
+composer install --no-dev --optimize-autoloader; \
+
 
 USER www
 
