@@ -26,6 +26,13 @@ COPY . .
 ARG APP_ENV=production
 ENV APP_ENV=${APP_ENV}
 
+RUN mkdir -p /var/www/html/storage/logs \
+    && chown -R www:www /var/www/html/storage \
+    && chmod -R 775 /var/www/html/storage \
+    && mkdir -p /var/www/html/vendor \
+    && chown -R www:www /var/www/html/vendor \
+    && chmod -R 775 /var/www/html/vendor
+
 # Run application setup steps for dev and prod
 RUN if [ "$APP_ENV" = "local" ]; then \
         composer install; \

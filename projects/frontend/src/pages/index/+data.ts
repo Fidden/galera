@@ -1,6 +1,6 @@
 import {PageContextServer} from "vike/types";
 
-export const API_URL = import.meta.env.PUBLIC_ENV__API_URL;
+export const API_URL = 'http://nginx/api';
 const CATEGORY_ID = 1;
 
 export async function data(pageContext: PageContextServer) {
