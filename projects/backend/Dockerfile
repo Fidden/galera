@@ -33,8 +33,8 @@ RUN mkdir -p /var/www/html/storage/logs \
     && chown -R www:www /var/www/html/vendor \
     && chmod -R 775 /var/www/html/vendor
 
-RUN sudo chown -R www-data:www-data /var/www/html \
-    && sudo chmod 775 -R /var/www/html
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod 775 -R /var/www/html
 
 RUN composer install --no-dev --optimize-autoloader
 
