@@ -36,8 +36,6 @@ services:
       PUBLIC_ENV__API_URL: http://nginx/api
     ports:
       - "3000:3000"
-    volumes:
-      - ./projects/frontend/:/app/
     networks:
       - app-network
 
