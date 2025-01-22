@@ -34,9 +34,9 @@ services:
       context: ./projects/frontend
       dockerfile: Dockerfile
     environment:
-      API_URL: http://nginx/api
+      PUBLIC_ENV__API_URL: http://nginx/api
     ports:
-      - "5173:5173"
+      - "3000:3000"
     volumes:
       - ./projects/frontend/:/app/
     networks:

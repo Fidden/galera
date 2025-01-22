@@ -11,5 +11,7 @@ else
     php artisan migrate --force
 fi
 
+php artisan app:products
+
 # Start PHP-FPM
 exec "$@"

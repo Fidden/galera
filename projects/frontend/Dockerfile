@@ -16,7 +16,8 @@ RUN npm install -g pnpm \
 COPY . .
 
 # Открываем порт для приложения
-EXPOSE 5173
+EXPOSE 3000
 
 RUN pnpm build
 
+CMD ["pnpm","vike", "preview"]
