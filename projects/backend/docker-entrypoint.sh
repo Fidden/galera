@@ -1,7 +1,6 @@
 #!/bin/sh
 set -e
 
-chmod -R ugo+rw /.composer
 chown -R $USER:www-data /var/www/html/storage/
 chown -R $USER:www-data /var/www/html/bootstrap/cache/
 chmod -R 775 /var/www/html/storage/
