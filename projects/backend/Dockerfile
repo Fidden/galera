@@ -16,10 +16,6 @@ WORKDIR /var/www/html
 # Additional setup script for migrations and indexing
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
-# Create www user
-RUN addgroup -g 1000 www && adduser -D -u 1000 -G www www \
-    && chown -R www:www /var/www/html
-
 COPY . .
 
 # Set environment variables (default to production)
@@ -33,14 +29,15 @@ RUN mkdir -p /var/www/html/storage/logs \
     && chown -R www:www /var/www/html/vendor \
     && chmod -R 775 /var/www/html/vendor
 
+RUN sudo chown -R www-data:www-data /var/www/html \
+    && sudo chmod 775 -R /var/www/html \
+
 # Run application setup steps for dev and prod
 RUN if [ "$APP_ENV" = "local" ]; then \
         composer install; \
     else \
       composer install --no-dev --optimize-autoloader; \
     fi
-
-USER www
 
 # Expose port for communication
 EXPOSE 9000

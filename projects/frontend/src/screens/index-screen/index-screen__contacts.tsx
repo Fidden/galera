@@ -3,7 +3,6 @@ import {Input} from '@/components/ui/input/input.tsx';
 import {Label} from '@/components/ui/label/label.tsx';
 import {Textarea} from '@/components/ui/textarea/textarea.tsx';
 import {cnIndexScreen} from '@/screens/index-screen/index-screen.const.ts';
-import {API_URL} from "@/pages/index/+data.ts";
 import {useState} from "preact/hooks";
 
 export function IndexScreenContacts() {
@@ -22,7 +21,7 @@ export function IndexScreenContacts() {
             data[key] = value;
         });
 
-        fetch(`${API_URL}/mail`, {
+        fetch(`http://nginx/api/mail`, {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {

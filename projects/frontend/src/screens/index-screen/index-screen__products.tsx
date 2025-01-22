@@ -5,7 +5,6 @@ import {TabList} from '@/components/ui/tab/tab__list.tsx';
 import {cnIndexScreen} from '@/screens/index-screen/index-screen.const.ts';
 import {IProduct} from '@/shared/types/product.ts';
 import {useData} from "@/hooks/useData";
-import {API_URL, Data} from "@/pages/index/+data.ts";
 import {useEffect, useState} from "preact/hooks";
 
 export function IndexScreenProducts() {
@@ -22,7 +21,7 @@ export function IndexScreenProducts() {
 
         setPrevCategoryId(selectedCategoryId);
 
-        fetch(`${API_URL}/products?category_id=${selectedCategoryId}`)
+        fetch(`http://nginx/api/products?category_id=${selectedCategoryId}`)
             .then(res => res.json())
             .then(json => setProducts(json));
     }, [selectedCategoryId]);

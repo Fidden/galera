@@ -1,13 +1,12 @@
 import {PageContextServer} from "vike/types";
 
-export const API_URL = 'http://nginx/api';
 const CATEGORY_ID = 1;
 
 export async function data(pageContext: PageContextServer) {
 
     const [productsRes, categoryRes] = await Promise.all([
-        fetch(`${API_URL}/products?category_id=${CATEGORY_ID}`),
-        fetch(`${API_URL}/categories`),
+        fetch(`http://nginx/api/products?category_id=${CATEGORY_ID}`),
+        fetch(`http://nginx/api/categories`),
     ])
 
     const [products, categories] = await Promise.all([
