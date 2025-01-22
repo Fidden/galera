@@ -1,0 +1,211 @@
+.product-card {
+	border-radius: 40px;
+	background: white;
+	border: 1px solid #E6EBF1;
+	padding: 40px;
+	cursor: pointer;
+
+	&__poster {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		margin-bottom: 40px;
+	}
+
+	&__name {
+		color: #1A3B69;
+		font-weight: 800;
+		font-size: 23px;
+		padding-bottom: 4px;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__description {
+		color: #7e8da1;
+		font-weight: 400;
+		font-size: 18px;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__dialog {
+		position: fixed;
+		left: 0;
+		top: 0;
+		background: rgba(30, 30, 30, 0.3);
+		width: 100vw;
+		height: 100vh;
+		color: #7E8DA1;
+
+		&-close {
+			position: fixed;
+			right: 42px;
+			top: 58px;
+			z-index: 100;
+		}
+
+		&-panel {
+			position: fixed;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			width: calc(100% - 40px);
+			height: 85vh;
+			max-width: 760px;
+		}
+
+		&-body {
+			border-radius: 48px;
+			position: fixed;
+			left: 50%;
+			top: 55%;
+			transform: translate(-50%, -50%);
+			background: white;
+			max-width: 760px;
+			width: calc(100% - 40px);
+			height: 85vh;
+			display: flex;
+			flex-direction: column;
+			padding: 64px;
+			overflow: auto;
+		}
+
+		&-image {
+			height: 300px;
+			align-self: center;
+			object-fit: cover;
+			padding-bottom: 17px;
+		}
+
+		&-title {
+			color: #1A3B69;
+			font-size: 32px;
+			line-height: 32px;
+			font-weight: 700;
+			padding-bottom: 31px;
+		}
+
+		&-energy {
+			display: flex;
+			flex-direction: row;
+			gap: 12px;
+			padding-bottom: 16px;
+		}
+
+		&-evalue {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			border-radius: 9999px;
+			background: #DBE7F7;
+			color: #346EBD;
+			font-size: 16px;
+			font-weight: 600;
+			padding: 8px 16px;
+
+			&:first-child {
+				background: #346EBD;
+				color: white;
+			}
+		}
+
+		&-structure {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			line-height: 26px;
+			margin-top: 16px;
+
+			&Title {
+				color: #1A3B69;
+				font-size: 20px;
+				font-weight: 700;
+			}
+		}
+	}
+
+	@media (width <= $xxl) {
+		&__dialog {
+			&-energy {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				align-items: stretch;
+				justify-items: stretch;
+			}
+		}
+	}
+
+	@media (width <= $lg) {
+		&__dialog {
+			&-body {
+				border-radius: 24px;
+				padding: 32px;
+			}
+
+			&-close {
+				right: 24px;
+				top: 48px;
+			}
+		}
+	}
+
+	@media (width <= $md) {
+		&__dialog {
+			&-title {
+				padding-bottom: 18px;
+			}
+
+			&-evalue {
+				padding: 8px;
+				font-size: 12px;
+			}
+		}
+	}
+
+	@media (width <= $sm) {
+		padding: 18px 14px;
+		border-radius: 28px;
+
+		&__poster {
+			margin-bottom: 18px;
+		}
+
+		&__name {
+			font-size: 16px;
+			line-height: 18px;
+		}
+
+		&__description {
+			font-size: 13px;
+		}
+
+		&__dialog {
+			&-body {
+				width: calc(100% - 10px);
+				padding: 24px;
+			}
+		}
+	}
+
+	@media (width <= 320px) {
+		border-radius: 22px;
+
+		&__name {
+			font-size: 14px;
+			line-height: 16px;
+		}
+
+		&__description {
+			font-size: 12px;
+		}
+	}
+}

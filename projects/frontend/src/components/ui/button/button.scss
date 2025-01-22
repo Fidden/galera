@@ -1,0 +1,13 @@
+.ui-button {
+  padding: 21px 32px;
+  background: white;
+  color: #346EBD;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 112px;
+
+  &:disabled {
+    cursor: default;
+    background: rgba(255, 255, 255, 0.8);
+  }
+}

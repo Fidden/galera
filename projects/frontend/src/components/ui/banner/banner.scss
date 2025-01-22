@@ -1,0 +1,74 @@
+.ui-banner {
+	display: flex;
+	flex-direction: row;
+	height: 500px;
+	width: 100%;
+	max-width: $container;
+	border-radius: 56px;
+	padding: 72px;
+	position: relative;
+	overflow: hidden;
+
+	&__overview {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		z-index: 100;
+	}
+
+	&__image {
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		z-index: -1;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: right center;
+		}
+	}
+
+	&__image_mobile {
+		display: none;
+	}
+
+	@media (width <= $lg) {
+		height: auto;
+		&__image {
+			display: none;
+		}
+
+		&__image_mobile {
+			display: block;
+		}
+
+		&__overview {
+			width: 100%;
+			text-align: center;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+
+	@media (width <= 370px) {
+		&__image_mobile img {
+			object-fit: contain;
+		}
+	}
+
+	@media (370px <= width <= $sm) {
+		padding: 44px;
+
+		&__image_mobile img {
+			object-fit: cover;
+		}
+	}
+
+	@media (width <= 320px) {
+		border-radius: 42px;
+	}
+}

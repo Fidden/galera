@@ -1,0 +1,13 @@
+.ui-input {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 112px;
+  padding: 21px 32px;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  @media (width <= $sm) {
+    padding: 16px 32px;
+  }
+}

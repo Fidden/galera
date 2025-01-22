@@ -1,0 +1,14 @@
+.ui-label {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  & > span {
+    font-weight: 700;
+  }
+
+  &__required {
+    color: red;
+    padding-left: 4px;
+  }
+}
