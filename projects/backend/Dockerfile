@@ -36,7 +36,7 @@ RUN mkdir -p /var/www/html/storage/logs \
 RUN sudo chown -R www-data:www-data /var/www/html \
     && sudo chmod 775 -R /var/www/html
 
-composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader
 
 USER www
 
