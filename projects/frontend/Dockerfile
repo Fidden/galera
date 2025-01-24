@@ -12,7 +12,7 @@ WORKDIR /app
 COPY . .
 
 # Устанавливаем pnpm глобально
-RUN npm install -g pnpm
+RUN npm install -g pnpm --force
 
 # Открываем порт для приложения
 EXPOSE 3000
