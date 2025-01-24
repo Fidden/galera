@@ -1,5 +1,5 @@
 import DzenSvg from '@/assets/svg/icons/socials/dzen.svg';
-import InstagramSvg from '@/assets/svg/icons/socials/instagram.svg';
+import VkSvg from '@/assets/svg/icons/socials/vk.svg';
 import TelegramSvg from '@/assets/svg/icons/socials/telegram.svg';
 import Youtube from '@/assets/svg/icons/socials/youtube.svg';
 import { cnHeader } from '@/components/header/header.const.ts';
@@ -7,9 +7,9 @@ import { cnHeader } from '@/components/header/header.const.ts';
 export const links = [
 	{
 		id: 0,
-		src: InstagramSvg,
-		alt: 'instagram',
-		href: 'https://www.instagram.com/pastukhov_ochenvkusno?igsh=ZXphbGdscjdxdmhn'
+		src: VkSvg,
+		alt: 'vkontakte',
+		href: 'https://vk.com/clips/id875002440'
 	},
 	{
 		id: 1,

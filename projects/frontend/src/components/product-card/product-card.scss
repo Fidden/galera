@@ -4,6 +4,7 @@
 	border: 1px solid #E6EBF1;
 	padding: 40px;
 	cursor: pointer;
+	z-index: 10;
 
 	&__poster {
 		width: 100%;
@@ -36,6 +37,7 @@
 	}
 
 	&__dialog {
+		z-index: 10;
 		position: fixed;
 		left: 0;
 		top: 0;
@@ -43,6 +45,7 @@
 		width: 100vw;
 		height: 100vh;
 		color: #7E8DA1;
+		backdrop-filter: blur(4px);
 
 		&-close {
 			position: fixed;

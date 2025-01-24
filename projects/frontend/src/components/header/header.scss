@@ -69,6 +69,28 @@
 		}
 	}
 
+
+	.header__burger-line1, .header__burger-line2, .header__burger-line3 {
+		transition: all 0.4s ease-in-out;
+		opacity: 1;
+	}
+
+
+	.header__burger-line2_open {
+		transform: rotate(45deg) translate(23%, -20%);
+		transition: transform 0.4s ease-in-out;
+	}
+
+	.header__burger-line3_open {
+		transform: rotate(-45deg) translate(-50%, -7%);
+		transition: transform 0.4s ease-in-out;
+	}
+
+	.header__burger-line1_open {
+		transition: opacity 0.4s ease-in-out;
+		opacity: 0;
+	}
+
 	@media (width <= $xxl) {
 		padding: 0 16px;
 

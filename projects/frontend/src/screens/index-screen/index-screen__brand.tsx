@@ -31,7 +31,7 @@ export function IndexScreenBrand() {
                             </Badge>
                             <p className={cnIndexScreen('brand-contacts')}>
                                 в&#160;
-                                <a href="https://www.instagram.com/pastukhov_ochenvkusno?igsh=ZXphbGdscjdxdmhn" target={'_blank'}>Instagram</a>,&thinsp;
+                                <a href="https://vk.com/clips/id875002440" target={'_blank'}>Vk</a>,&thinsp;
                                 <a href="https://t.me/pastukhov_ochenvkusno" target={'_blank'}>Telegram</a>,&thinsp;
                                 <a href="https://dzen.ru/id/668e8658519e875daf096b6e" target={'_blank'}>Дзен</a>&thinsp;и&thinsp;
                                 <a href="https://www.youtube.com/@zavodpastuhova" target={'_blank'}>YouTube</a>

@@ -29,15 +29,70 @@
 		font-weight: 600;
 	}
 
+	&__obr {
+		max-width: unset !important;
+		width: 80vw !important;
+
+
+		&::-webkit-scrollbar {
+			width: 8px;
+		}
+
+		&::-webkit-scrollbar-track {
+			border-radius: 9999px; /* Закругление трека */
+			background-color: #f3f4f6; /* Цвет трека (light mode) */
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-radius: 9999px; /* Закругление ползунка */
+			background-color: #d1d5db; /* Цвет ползунка (light mode) */
+		}
+
+		p:first-child {
+			font-size: 20px;
+			color: #1f3b69;
+			font-weight: 700;
+			margin-bottom: 22px;
+		}
+
+		p {
+			color: #7e8da1;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 22px;
+		}
+	}
+
+	&__inn {
+		width: 100% !important;
+		max-width: 468px !important;
+		padding: 48px 42px !important;
+		border-radius: 36px !important;
+
+		p {
+			font-size: 16px;
+			font-weight: 700;
+			color: #1f3b69;
+
+			&:last-child {
+				margin-top: 40px;
+				font-size: 14px;
+				display: flex;
+				flex-direction: column;
+
+				span {
+					color: #7e8da1;
+					font-weight: 400;
+				}
+			}
+		}
+	}
+
 	@media (width <= $lg) {
 		border-radius: 38px;
 		flex-direction: column-reverse;
 		align-items: center;
 		gap: 24px;
-
-		&__wrapper {
-			max-width: 620px;
-		}
 
 		&__documents {
 			flex-direction: column;
@@ -46,7 +101,7 @@
 			text-align: center;
 		}
 	}
-	
+
 	@media (width <= $sm) {
 		font-size: 14px;
 		padding: 30px 20px;

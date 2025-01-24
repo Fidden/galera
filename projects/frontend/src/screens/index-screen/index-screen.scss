@@ -65,9 +65,9 @@
 			transform: scaleX(-1);
 		}
 
+
 		@media ($sm <= width <= $lg) {
 			.ui-tab__group, &-body {
-				max-width: 620px;
 				grid-template-columns: repeat(2, 1fr);
 			}
 		}
@@ -127,8 +127,6 @@
 		}
 
 		@media (width <= $lg) {
-			max-width: 620px;
-
 			&-text {
 				margin-bottom: 350px;
 			}
@@ -239,6 +237,7 @@
 				background: url('@/assets/svg/purchase-arrow.svg') no-repeat;
 				width: 70px;
 				height: 70px;
+				z-index: -1;
 			}
 
 			&::before {
@@ -250,6 +249,27 @@
 				background: url('@/assets/svg/purchase-arrow.svg') no-repeat;
 				width: 70px;
 				height: 70px;
+				z-index: -1;
+			}
+
+			@media ($lg <= width <= $xl) {
+				&::before {
+					transform: translate(-100%, 50%);
+				}
+
+				&::after {
+					transform: translate(100%, 50%) scaleX(-1);
+				}
+			}
+
+			@media ($md <= width <= $lg) {
+				&::before {
+					transform: translate(-20%, 25%) rotate(96deg) scaleX(-1);
+				}
+
+				&::after {
+					transform: translate(20%, 25%) rotate(-96deg);
+				}
 			}
 		}
 
@@ -308,7 +328,6 @@
 				flex-direction: column;
 				align-self: center;
 				gap: 80px;
-				max-width: 620px;
 			}
 
 			&-option {
@@ -571,6 +590,8 @@
 
 			&-heading {
 				text-align: center;
+				font-size: 40px;
+				line-height: 44px;
 			}
 
 			&-container {
@@ -584,8 +605,8 @@
 
 			&-reels {
 				max-height: unset;
-				max-width: 620px;
 				align-self: center;
+				width: 100%;
 			}
 
 			&::before {
@@ -679,6 +700,8 @@
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
+			align-items: flex-start;
+			height: 60px;
 		}
 
 		&-images {
@@ -761,8 +784,30 @@
 			&-body {
 				display: flex;
 				flex-direction: column;
-				max-width: 620px;
 				margin: 0 auto;
+			}
+		}
+
+		@media ($md <= width <= $lg) {
+			&-body {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: 1fr min-content;
+				grid-template-areas:
+									"a a"
+									"b c";
+				gap: 40px;
+			}
+
+
+			&-info:nth-child(2) {
+				padding: 25px 62px;
+
+				img {
+					max-height: 200px;
+					object-fit: contain;
+					margin: auto;
+				}
 			}
 		}
 
@@ -928,7 +973,6 @@
 		}
 
 		@media (width <= $lg) {
-			max-width: 620px;
 			&-info {
 				width: 100%;
 			}
