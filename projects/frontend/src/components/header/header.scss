@@ -12,7 +12,7 @@
 	color: #1B1A37;
 	gap: 8px;
 	width: 100%;
-	max-width: $container;
+	max-width: calc($container - 20px);
 	z-index: 1000;
 
 	&__nav, &__links, &__contacts, &__logo {
@@ -20,10 +20,14 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-		background: #FFFFFFE5;
+		background: rgba(255, 255, 255, 0.8);
 		backdrop-filter: blur(44px);
 		border-radius: 50px;
 		height: 56px;
+	}
+
+	&__nav {
+		background: none;
 	}
 
 	&__links, &__nav {
@@ -47,6 +51,7 @@
 
 	&__logo {
 		padding: 8px 16px 8px 8px;
+		flex-shrink: 0;
 	}
 
 	&__burger {
@@ -79,7 +84,8 @@
 			&-button {
 				display: block;
 				padding: 12px 24px;
-				background: white;
+				background: rgba(255, 255, 255, 0.8);
+				backdrop-filter: blur(44px);
 				border-radius: 48px;
 				height: 100%;
 			}

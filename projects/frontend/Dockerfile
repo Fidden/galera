@@ -1,23 +1,26 @@
-FROM node:22-alpine
+FROM node:22-alpine as base
 
 # Устанавливаем необходимые системные зависимости (если есть)
 RUN apk add --no-cache bash openssh
 
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
 WORKDIR /app
 
-# Копируем package.json, pnpm-workspace.yaml и .npmrc (если есть)
-COPY package.json ./
+COPY . .
 
 # Устанавливаем pnpm глобально
-RUN npm install -g pnpm \
-    && pnpm install
-
-
-COPY . .
+RUN npm install -g pnpm
 
 # Открываем порт для приложения
 EXPOSE 3000
 
-RUN pnpm build
+FROM base as dev
+RUN pnpm install --force
+CMD ["pnpm", "dev"]
 
-CMD ["pnpm","vike", "preview"]
+FROM base as prod
+RUN pnpm install --prod --frozen-lockfile
+CMD ["pnpm", "vike", "preview"]

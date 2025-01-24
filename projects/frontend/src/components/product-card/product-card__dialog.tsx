@@ -3,6 +3,7 @@ import {IProduct} from "@/shared/types/product.ts";
 import {cnProductCard} from "@/components/product-card/product-card.const.ts";
 import {cnIndexScreen} from "@/screens/index-screen/index-screen.const.ts";
 import CloseSvg from '@/assets/svg/icons/close.svg';
+import {useEffect, useRef} from 'preact/hooks';
 
 interface IProductCardDialogProps {
     product: IProduct;
@@ -11,7 +12,6 @@ interface IProductCardDialogProps {
 }
 
 export function ProductCardDialog(props: IProductCardDialogProps) {
-
     const energy = [
         {text: 'Масса нетто', value: props.product.weight},
         {text: 'Белки', value: props.product.protein},
@@ -19,20 +19,30 @@ export function ProductCardDialog(props: IProductCardDialogProps) {
         {text: 'Углеводы', value: props.product.cal},
     ]
 
+    const panelRef = useRef<HTMLDivElement | null>(null);
+    const bodyRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        if (!panelRef.current || !bodyRef.current) {
+            return;
+        }
+        panelRef.current.style.height = `${bodyRef.current.getBoundingClientRect().height}px`;
+    }, [panelRef, bodyRef, props.open]);
+
     return (
         <Dialog
             className={cnProductCard('dialog')}
             onClose={props.onClose}
             open={props.open}
         >
-            <DialogPanel className={cnProductCard('dialog-panel')}>
+            <DialogPanel className={cnProductCard('dialog-panel')} ref={panelRef}>
                 <button
                     onClick={props.onClose}
                     className={cnProductCard('dialog-close')}
                 >
                     <img src={CloseSvg} alt={'close'}/>
                 </button>
-                <div className={cnProductCard('dialog-body')}>
+                <div className={cnProductCard('dialog-body')} ref={bodyRef}>
                     <img
                         className={cnProductCard('dialog-image')}
                         src={props.product.poster}

@@ -35,6 +35,10 @@
 		align-items: center;
 		gap: 24px;
 
+		&__wrapper {
+			max-width: 620px;
+		}
+
 		&__documents {
 			flex-direction: column;
 			align-items: center;

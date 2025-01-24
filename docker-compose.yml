@@ -8,6 +8,7 @@ services:
     build:
       context: ./projects/backend
       dockerfile: Dockerfile
+      target: ${DOCKER_TARGET:-dev}
       args:
         APP_ENV: ${APP_ENV:-production}
     volumes:
@@ -22,6 +23,9 @@ services:
       DB_DATABASE: spectrum
       DB_USERNAME: spectrum_root
       DB_PASSWORD: spectrum_root
+      USER_ID: ${UID:-1000}
+      GROUP_ID: ${GID:-1000}
+    user: "${UID:-1000}:${GID:-1000}"
     networks:
       - app-network
 
@@ -30,12 +34,15 @@ services:
     restart: unless-stopped
     tty: true
     build:
+      target: ${DOCKER_TARGET:-dev}
       context: ./projects/frontend
       dockerfile: Dockerfile
     environment:
       PUBLIC_ENV__API_URL: http://nginx/api
     ports:
       - "3000:3000"
+    volumes:
+      - ./projects/frontend/src/:/app/src
     networks:
       - app-network
 

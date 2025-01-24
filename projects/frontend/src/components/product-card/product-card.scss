@@ -57,8 +57,12 @@
 			top: 50%;
 			transform: translate(-50%, -50%);
 			width: calc(100% - 40px);
-			height: 85vh;
 			max-width: 760px;
+		}
+
+		&-description {
+			padding-top: 10px;
+			font-size: 18px;
 		}
 
 		&-body {
@@ -70,7 +74,8 @@
 			background: white;
 			max-width: 760px;
 			width: calc(100% - 40px);
-			height: 85vh;
+			height: min-content;
+			max-height: 85vh;
 			display: flex;
 			flex-direction: column;
 			padding: 64px;
@@ -119,7 +124,7 @@
 		}
 
 		&-structure {
-			display: flex;
+			display: none;
 			flex-direction: column;
 			gap: 12px;
 			line-height: 26px;

@@ -54,13 +54,13 @@
 		}
 	}
 
-	@media (width <= 370px) {
+	@media (width <= 420px) {
 		&__image_mobile img {
 			object-fit: contain;
 		}
 	}
 
-	@media (370px <= width <= $sm) {
+	@media (420px <= width <= $sm) {
 		padding: 44px;
 
 		&__image_mobile img {

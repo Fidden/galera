@@ -1,5 +1,5 @@
 # Stage: Base
-FROM php:8.4-fpm-alpine
+FROM php:8.4-fpm-alpine as base
 
 # Install necessary packages
 RUN apk add --no-cache \
@@ -7,27 +7,31 @@ RUN apk add --no-cache \
     zlib-dev libzip-dev oniguruma-dev zip unzip curl \
     && docker-php-ext-install -j$(nproc) gd pdo pdo_mysql mysqli
 
+RUN addgroup -g 1000 www && \
+    adduser -u 1000 -G www -D -s /bin/bash www
+
+RUN chown -R www:www /var/www/html
+
+USER www
+
 # Install Composer
 COPY --from=composer:2.7.6 /usr/bin/composer /usr/bin/composer
 
 # Set working directory
 WORKDIR /var/www/html
 
-# Additional setup script for migrations and indexing
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+COPY --chown=www:www . .
 
-COPY . .
-
-# Set environment variables (default to production)
+FROM base as prod
 ARG APP_ENV=production
 ENV APP_ENV=${APP_ENV}
+RUN composer install --optimize-autoloader
 
-RUN composer install --no-dev --optimize-autoloader
+FROM base as dev
+RUN composer install
 
-# Expose port for communication
+FROM base
 EXPOSE 9000
-
-# Default command
 CMD ["php-fpm"]
+ENTRYPOINT ["sh", "./docker-entrypoint.sh"]
 
-ENTRYPOINT ["sh", "/usr/local/bin/docker-entrypoint.sh"]

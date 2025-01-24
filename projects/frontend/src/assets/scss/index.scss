@@ -15,6 +15,7 @@ html, body, #app {
 	background: white;
 	position: relative;
 	scroll-behavior: smooth;
+	overscroll-behavior: none;
 }
 
 #app {
