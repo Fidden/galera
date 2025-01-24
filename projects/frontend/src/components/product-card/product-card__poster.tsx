@@ -8,7 +8,7 @@ interface IProductCardPoster {
 export function ProductCardPoster(props: IProductCardPoster) {
     return <img
         className={cnProductCard('poster')}
-        src={props.src}
+        src={props.src.replace('http://nginx/storage/', '/storage/')}
         alt={props.alt}
         loading={'lazy'}
     />;
