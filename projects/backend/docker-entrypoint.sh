@@ -6,6 +6,8 @@ chmod -R 775 /var/www/html/storage
 
 # Выполняем миграции и другие команды
 php artisan optimize:clear
+php artisan cache:clear
+php artisan config:clear
 php artisan migrate:fresh --force
 php artisan app:products
 php artisan vendor:publish --tag=moonshine-assets --force
