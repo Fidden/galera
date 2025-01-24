@@ -32,10 +32,16 @@
 	&__obr {
 		max-width: 80dvw !important;
 		width: 100dvw !important;
+		overflow: hidden !important;
+		padding: 64px 44px 64px 64px !important;
 
+		&__scroll {
+			overflow: auto;
+			padding-right: 20px;
+		}
 
 		&::-webkit-scrollbar {
-			width: 8px;
+			width: 4px;
 		}
 
 		&::-webkit-scrollbar-track {

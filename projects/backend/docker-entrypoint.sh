@@ -8,5 +8,6 @@ chmod -R 775 /var/www/html/storage
 php artisan optimize:clear
 php artisan migrate:fresh --force
 php artisan app:products
+php artisan vendor:publish --tag=moonshine-assets --force
 
 exec "$@"

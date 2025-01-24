@@ -14,9 +14,10 @@ export function IndexScreenBrand() {
                     className={cnIndexScreen('brand-reels')}
                     src={ReelsMp4}
                     alt={'reels'}
-                    muted={true}
-                    loop={true}
-                    autoplay={true}
+                    muted
+                    loop
+                    autoplay
+                    playsinline
                 />
 
                 <div className={cnIndexScreen('brand-body')}>
