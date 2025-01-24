@@ -17,7 +17,7 @@ class ProductResource extends JsonResource
     {
         return [
             ...parent::toArray($request),
-            'poster' => Storage::url($this->poster),
+            'poster' => Storage::disk('public')->url($this->poster),
         ];
     }
 }
