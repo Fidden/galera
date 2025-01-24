@@ -17,6 +17,7 @@
     "react": "npm:@preact/compat",
     "react-dom": "npm:@preact/compat",
     "reflect-metadata": "^0.2.2",
+    "@preact/preset-vite": "^2.9.3",
     "vike": "^0.4.212"
   },
   "devDependencies": {
@@ -25,7 +26,6 @@
     "@eslint/compat": "^1.2.5",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.18.0",
-    "@preact/preset-vite": "^2.9.3",
     "@types/node": "^22.10.7",
     "@typescript-eslint/eslint-plugin": "^8.20.0",
     "@typescript-eslint/parser": "^8.20.0",

@@ -20,6 +20,8 @@ COPY --from=composer:2.7.6 /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www/html
 
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+
 COPY --chown=www:www . .
 
 FROM base as prod
@@ -33,5 +35,6 @@ RUN composer install
 FROM base
 EXPOSE 9000
 CMD ["php-fpm"]
-ENTRYPOINT ["sh", "./docker-entrypoint.sh"]
+
+ENTRYPOINT ["sh", "/usr/local/bin/docker-entrypoint.sh"]
 
