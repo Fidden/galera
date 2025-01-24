@@ -11,5 +11,6 @@ php artisan config:clear
 php artisan migrate:fresh --force
 php artisan app:products
 php artisan vendor:publish --tag=moonshine-assets --force
+php artisan moonshine:user -u root -p root
 
 exec "$@"
