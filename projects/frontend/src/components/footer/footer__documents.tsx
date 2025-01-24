@@ -48,7 +48,11 @@ export function FooterDocuments() {
                 onClose={() => setDialog2Open(false)}
                 open={dialog2Open}
             >
-                <DialogPanel className={cnProductCard('dialog-panel')} ref={panelRef}>
+                <DialogPanel
+                    style={{maxWidth: '80dvw', width: '100%'}}
+                    className={cnProductCard('dialog-panel')}
+                    ref={panelRef}
+                >
                     <button
                         onClick={() => setDialog2Open(false)}
                         className={cnProductCard('dialog-close')}
