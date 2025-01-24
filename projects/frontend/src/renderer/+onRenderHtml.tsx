@@ -1,8 +1,12 @@
 import { renderToString } from 'preact-render-to-string';
 import { PageContextServer } from 'vike/dist/esm/shared/types';
 import { dangerouslySkipEscape, escapeInject } from 'vike/server';
-
+import AppleTouchIcon from '@/static/favicon/apple-touch-icon.png';
+import Favicon32 from '@/static/favicon/favicon-32x32.png';
+import Favicon16 from '@/static/favicon/favicon-16x16.png';
 import { PageShell } from '@/renderer/PageShell';
+
+
 
 export default function onRenderHtml(pageContext: PageContextServer) {
 	const { Page, pageProps } = pageContext;
@@ -28,10 +32,9 @@ export default function onRenderHtml(pageContext: PageContextServer) {
 			<meta name="keywords" content="завод пастухова, суфле пастухова, картошка пастухова, масло, сгущенка, зефир">
 			<meta property="og:url" content="https://pastukhov-ochenvkusno.ru">
 			<link rel="canonical" href="https://pastukhov-ochenvkusno.ru">
-			<link rel="apple-touch-icon" sizes="180x180" href="/src/assets/favicon/apple-touch-icon.png">
-			<link rel="icon" type="image/png" sizes="32x32" href="/src/assets/favicon/favicon-32x32.png">
-			<link rel="icon" type="image/png" sizes="16x16" href="/src/assets/favicon/favicon-16x16.png">
-			<link rel="manifest" href="/src/assets/favicon/site.webmanifest">
+			<link rel="apple-touch-icon" sizes="180x180" href="${AppleTouchIcon}">
+			<link rel="icon" type="image/png" sizes="32x32" href="${Favicon32}">
+			<link rel="icon" type="image/png" sizes="16x16" href="${Favicon16}">
 		  </head>
 		  <body>
 		  	<div id="app">
