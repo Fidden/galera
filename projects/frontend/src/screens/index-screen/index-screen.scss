@@ -1039,7 +1039,7 @@
 }
 
 .initial-text {
-	font-size: 93px;
+	font-size: 6.8dvw;
 	font-weight: 900;
 	width: 100%;
 	color: #346EBD;
@@ -1050,32 +1050,6 @@
 	justify-content: center;
 	gap: 14px;
 	z-index: 1000;
-
-	@media ($xl <= width <= $xxl) {
-		font-size: 81px;
-	}
-
-	@media ($lg <= width <= $xl) {
-		font-size: 72px;
-	}
-
-	@media ($md <= width <= $lg) {
-		font-size: 58px;
-	}
-
-	@media ($sm <= width <= $md) {
-		font-size: 40px;
-	}
-
-
-	@media ($xs <= width <= $sm) {
-		font-size: 22px;
-		gap: 8px;
-	}
-
-	@media (width <= 320px) {
-		font-size: 20px;
-	}
 }
 
 .fade {

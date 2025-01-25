@@ -15,8 +15,9 @@ export function IndexScreenBrand() {
                     src={ReelsMp4}
                     alt={'reels'}
                     muted
+                    autoPlay
                     loop
-                    autoplay
+                    preload={'auto'}
                     playsinline
                 />
 
